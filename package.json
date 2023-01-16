@@ -1,0 +1,20 @@
+{
+  "name": "bookmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:tailwind": "pnpm tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled/main.css --watch",
+    "dev:server": "hugo server -D --disableFastRender",
+    "dev": "killall hugo & pnpm dev:tailwind & pnpm dev:server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "prettier": "^2.8.2",
+    "tailwindcss": "^3.2.4"
+  }
+}

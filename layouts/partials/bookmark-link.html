@@ -1,0 +1,32 @@
+<!-- <p>{{ printf "%#v" .Params.tags }}</p> -->
+<article class="py-4 px-2">
+  <div class="flex flex-row">
+    <div class="flex-none pr-6">
+      <a href="{{ .Params.externalUrl }}" target="_blank" rel="external">
+        <img class="object-cover w-44 h-32 rounded-md" src="{{ .Params.imgUrl }}" />
+      </a>
+    </div>
+    <div class="flex-auto">
+      <h2 class="flex items-center">
+        <a class="text-xl text-neutral-700 font-semibold hover:underline hover:underline-offset-2"
+          href="{{ .Params.externalUrl }}" target="_blank" rel="external">
+          {{ .Title }}
+        </a>
+      </h2>
+      <time class="flex text-sm text-neutral-400">
+        {{ .Date | time.Format ":date_medium"}}
+      </time>
+      <div class="flex mt-1">
+        {{ range .Params.tags }}
+        <span
+          class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{
+          . }}</span>
+        {{ end }}
+      </div>
+      <p class="py-1 text-sm prose line-clamp-3">
+        {{ .Summary }}
+      </p>
+      <!-- <a href="{{ .Params.externalUrl }}" target="_blank" rel="external">{{.Date.Format "2006-01-02"}} | {{.Title}}</a> -->
+    </div>
+  </div>
+</article>

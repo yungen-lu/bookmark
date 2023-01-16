@@ -1,0 +1,20 @@
+<header class="py-10 font-semibold">
+  <nav class="flex justify-between">
+    <div>
+      <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="{{ "" | relLangURL }}">
+        Yungen's Personal bookmark
+      </a>
+    </div>
+    {{/* Main menu */}}
+    <ul class="flex flex-row">
+        {{ range .Site.Menus.main }}
+        <li class="mr-7 last:mr-0">
+        <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+          href="{{ .URL }}"
+          >{{ .Name }}</a>
+        </li>
+        {{ end }}
+    </ul>
+  </nav>
+</header>
+

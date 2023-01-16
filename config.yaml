@@ -1,0 +1,10 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'My Bookmark'
+menu:
+  main:
+  - name: tags
+    url: /tags/
+  - name: bookmarks
+    url: /bookmarks/
+paginate: 5
