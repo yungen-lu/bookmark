@@ -4,13 +4,19 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
   prettier: ^2.8.2
+  prettier-plugin-go-template: ^0.0.13
+  prettier-plugin-tailwindcss: ^0.2.1
   tailwindcss: ^3.2.4
 
 dependencies:
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
-  prettier: 2.8.2
   tailwindcss: 3.2.4
+
+devDependencies:
+  prettier: 2.8.2
+  prettier-plugin-go-template: 0.0.13_prettier@2.8.2
+  prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.2
 
 packages:
 
@@ -383,11 +389,30 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /prettier-plugin-go-template/0.0.13_prettier@2.8.2:
+    resolution: {integrity: sha512-gG/xT5kd+kCzoMaTchXvdfBdsunyRCV6G8cgdPGPd2V5JGGKXUG7SjzBKU7jaGh2RTeblcAdBb/E+S/duOAMsA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      prettier: ^2.0.0
+    dependencies:
+      prettier: 2.8.2
+      ulid: 2.3.0
+    dev: true
+
+  /prettier-plugin-tailwindcss/0.2.1_prettier@2.8.2:
+    resolution: {integrity: sha512-aIO8IguumORyRsmT+E7JfJ3A9FEoyhqZR7Au7TBOege3VZkgMvHJMkufeYp4zjnDK2iq4ktkvGMNOQR9T8lisQ==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.8.2
+    dev: true
+
   /prettier/2.8.2:
     resolution: {integrity: sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: false
+    dev: true
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -479,6 +504,11 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: false
+
+  /ulid/2.3.0:
+    resolution: {integrity: sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==}
+    hasBin: true
+    dev: true
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
