@@ -26,8 +26,8 @@ jobs:
           cache: "pnpm"
       - run: pnpm notion
         env:
-          NOTION_TOKEN: ${{ env.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ env.NOTION_DATABASE_ID }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
