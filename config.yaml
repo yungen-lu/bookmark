@@ -7,4 +7,9 @@ menu:
     url: /tags/
   - name: bookmarks
     url: /bookmarks/
+  - name: categories
+    url: /categories/
 paginate: 5
+taxonomies:
+  category: categories
+  tag: tags

@@ -22,6 +22,7 @@ type PropertyMutliSelect = Extract<
 >;
 type PropertyRichText = Extract<Properties[string], { type: "rich_text" }>;
 type PropertyTitle = Extract<Properties[string], { type: "title" }>;
+type PropertySelect = Extract<Properties[string], { type: "select" }>;
 type DataBaseModel = {
   "Last edited time": PropertyLastEdited;
   imgUrl: PropertyUrl;
@@ -30,6 +31,7 @@ type DataBaseModel = {
   "Created time": PropertyCreatedTime;
   Description: PropertyRichText;
   Title: PropertyTitle;
+  Categories: PropertySelect;
 };
 type PageFrontMatter = {
   title: string;
@@ -37,6 +39,7 @@ type PageFrontMatter = {
   lastmod: string;
   description: string;
   tags: string[];
+  Categories: string;
   externalUrL: string;
   imgUrL: string;
 };
@@ -64,6 +67,7 @@ async function main() {
     database_id: notion_database_id,
   })) {
     if (isFullPage(page)) {
+      // console.log(page);
       const p = page.properties as DataBaseModel;
       // console.log(p.Title.title);
       const pageFrontMatter = convert(p);
@@ -104,6 +108,7 @@ function convert(data: DataBaseModel): PageFrontMatter {
     tags: data.Tags.multi_select.map((el) => {
       return el.name;
     }),
+    Categories: data.Categories.select?.name ?? "",
     externalUrL: data.externalUrl.url ?? "",
     imgUrL: data.imgUrl.url ?? "",
   };
