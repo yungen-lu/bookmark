@@ -5,7 +5,10 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import * as dotenv from "dotenv";
 import * as yaml from "js-yaml";
-import * as fs from "fs/promises";
+import fs from "fs/promises";
+import { createWriteStream } from "fs";
+import axios from "axios";
+import path from "path";
 type Properties = PageObjectResponse["properties"];
 type PropertyLastEdited = Extract<
   Properties[string],
@@ -72,8 +75,24 @@ async function main() {
       // console.log(p.Title.title);
       const pageFrontMatter = convert(p);
       // console.log(yaml.dump(pageFrontMatter));
+      console.log(pageFrontMatter.imgUrL);
+      const pathDir = path.join(
+        "./",
+        "content",
+        "bookmarks",
+        pageFrontMatter.title
+      );
+      console.log(pathDir);
+      const imgDir = path.join(pathDir, `${pageFrontMatter.title}-image.jpg`);
+      await fs.mkdir(pathDir, { recursive: true });
+      try {
+        await downloadFile(pageFrontMatter.imgUrL, imgDir);
+      } catch (err) {
+        console.log(err);
+        await fs.rm(imgDir);
+      }
       await fs.writeFile(
-        `./content/bookmarks/${pageFrontMatter.title}.md`,
+        path.join(pathDir, "index.md"),
         "---\n" + yaml.dump(pageFrontMatter) + "---\n"
       );
       // console.log(p.Tags.multi_select)
@@ -120,4 +139,28 @@ function findText(arr: RichTextItemResponse[]): string {
   } else {
     throw new Error("can't find text");
   }
+}
+async function downloadFile(fileUrl: string, outputLocationPath: string) {
+  const writer = createWriteStream(outputLocationPath);
+
+  return axios({
+    method: "get",
+    url: fileUrl,
+    responseType: "stream",
+  }).then((response) => {
+    return new Promise((resolve, reject) => {
+      response.data.pipe(writer);
+      let error: Error | null = null;
+      writer.on("error", (err) => {
+        error = err;
+        writer.close();
+        reject(err);
+      });
+      writer.on("close", () => {
+        if (!error) {
+          resolve(true);
+        }
+      });
+    });
+  });
 }
