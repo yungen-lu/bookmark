@@ -6,19 +6,27 @@
   "scripts": {
     "dev:tailwind": "pnpm tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled/main.css --watch",
     "dev:server": "hugo server -D --disableFastRender",
-    "dev": "killall hugo & pnpm dev:tailwind & pnpm dev:server"
+    "dev": "killall hugo & pnpm dev:tailwind & pnpm dev:server",
+    "notion": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@notionhq/client": "^2.2.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
+    "dotenv": "^16.0.3",
+    "js-yaml": "^4.1.0",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^18.11.18",
     "prettier": "^2.8.2",
     "prettier-plugin-go-template": "^0.0.13",
-    "prettier-plugin-tailwindcss": "^0.2.1"
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   }
 }
