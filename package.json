@@ -7,6 +7,9 @@
     "dev:tailwind": "pnpm tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled/main.css --watch",
     "dev:server": "hugo server -D --disableFastRender",
     "dev": "killall hugo & pnpm dev:tailwind & pnpm dev:server",
+    "build:tailwind": "pnpm tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled/main.css --minify",
+    "build:hugo": "hugo --minify",
+    "build": "pnpm build:tailwind && pnpm build:hugo",
     "notion": "ts-node src/index.ts"
   },
   "keywords": [],
