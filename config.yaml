@@ -1,4 +1,4 @@
-baseURL: 'https://bookmark.yungen.dev/'
+baseURL: 'http://bookmark.yungen.dev/'
 languageCode: 'en-us'
 title: 'My Bookmark'
 menu:
