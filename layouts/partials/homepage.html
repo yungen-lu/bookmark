@@ -1,3 +1,4 @@
+{{ $p := .Site.GetPage "/bookmarks/" }}
 <div class="mx-auto max-w-5xl pt-20 sm:pt-24 lg:pt-32">
   <h1
     class="text-center text-4xl font-extrabold text-slate-900 sm:text-5xl lg:text-6xl"
@@ -10,7 +11,7 @@
   <div class="mt-6 flex justify-center sm:mt-10">
     <a
       class="mr-2 mb-2 rounded-lg bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-pink-200 "
-      href="/bookmarks/"
+      href="{{ $p.Permalink }}"
       >Enter</a
     >
   </div>
