@@ -1,5 +1,5 @@
 <header class="py-10 font-semibold">
-  <nav class="flex justify-between">
+  <nav class="flex items-start justify-between sm:items-center">
     <div>
       <a
         class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
@@ -9,9 +9,9 @@
       </a>
     </div>
     {{/* Main menu */}}
-    <ul class="flex flex-row">
+    <ul class="flex flex-col text-right sm:flex-row">
       {{ range .Site.Menus.main }}
-        <li class="mr-7 last:mr-0">
+        <li class="mr-7 sm:last:mr-0">
           <a
             class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
             href="{{ .URL }}"
