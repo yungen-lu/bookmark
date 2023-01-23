@@ -2,8 +2,8 @@
 {{ $images := $.Resources.ByType "image" }}
 {{ $thumbnail := $images.GetMatch "*image*" }}
 <article class="py-4 px-2">
-  <div class="flex flex-row">
-    <div class="flex-none pr-6">
+  <div class="flex flex-col sm:flex-row">
+    <div class="flex-none sm:pr-6">
       <a href="{{ .Params.externalUrl }}" target="_blank" rel="external">
         {{ if $thumbnail }}
           <img

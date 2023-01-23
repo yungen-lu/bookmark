@@ -1,5 +1,5 @@
 {{ $p := .Site.GetPage "/bookmarks/" }}
-<div class="mx-auto max-w-5xl pt-20 sm:pt-24 lg:pt-32">
+<div class="mx-auto flex max-w-5xl flex-col pt-20 sm:pt-24 lg:pt-32">
   <h1
     class="text-center text-4xl font-extrabold text-slate-900 sm:text-5xl lg:text-6xl"
   >
@@ -8,7 +8,7 @@
   <p class="mx-auto mt-6 max-w-3xl text-center text-lg text-slate-600">
     A collection of all kinds of interesting websites
   </p>
-  <div class="mt-6 flex justify-center sm:mt-10">
+  <div class="mt-6 mb-14 flex justify-center sm:mt-10">
     <a
       class="mr-2 mb-2 rounded-lg bg-gradient-to-br from-pink-500 to-orange-400 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-pink-200 "
       href="{{ $p.Permalink }}"
