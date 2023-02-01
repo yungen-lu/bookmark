@@ -33,13 +33,20 @@ async function main() {
         "bookmarks",
         pageFrontMatter.title
       );
-      console.log(pathDir);
+      // console.log(pathDir);
       const imgDir = path.join(pathDir, `${pageFrontMatter.title}-image.jpg`);
       await fs.mkdir(pathDir, { recursive: true });
-      try {
-        await downloadFile(pageFrontMatter.imgUrL, imgDir);
-      } catch (err) {
-        console.log(err);
+      const checkExists = await fs
+        .stat(imgDir)
+        .then(() => true)
+        .catch(() => false);
+      if (!checkExists) {
+        console.log("downloading: ", imgDir);
+        try {
+          await downloadFile(pageFrontMatter.imgUrL, imgDir);
+        } catch (err) {
+          console.log(err);
+        }
       }
       await fs.writeFile(
         path.join(pathDir, "index.md"),
