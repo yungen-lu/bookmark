@@ -5,7 +5,6 @@ lastmod: '2023-01-23T02:54:00.000Z'
 description: A book about cloud native and kubernetes
 tags:
   - kubernetes
-  - book
   - containers
 Categories: Book
 externalUrL: https://lib.jimmysong.io/kubernetes-handbook/
