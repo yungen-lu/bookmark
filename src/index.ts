@@ -40,7 +40,7 @@ async function main() {
         .stat(imgDir)
         .then(() => true)
         .catch(() => false);
-      if (!checkExists) {
+      if (!checkExists && pageFrontMatter.imgUrL) {
         console.log("downloading: ", imgDir);
         try {
           await downloadFile(pageFrontMatter.imgUrL, imgDir);
