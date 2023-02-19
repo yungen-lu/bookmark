@@ -1,12 +1,13 @@
 ---
 title: LibHunt
 date: '2023-01-21T08:15:00.000Z'
-lastmod: '2023-01-21T08:19:00.000Z'
+lastmod: '2023-02-19T14:12:00.000Z'
 description: Discover trending open-source projects and their alternatives
 tags:
   - resource
   - github
   - awesome
+  - opensource
 Categories: Resource
 externalUrL: https://www.libhunt.com
 imgUrL: >-
