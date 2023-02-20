@@ -1,11 +1,12 @@
 ---
 title: conc
 date: '2023-02-13T02:27:00.000Z'
-lastmod: '2023-02-13T02:29:00.000Z'
+lastmod: '2023-02-19T14:13:00.000Z'
 description: Better structured concurrency for go
 tags:
   - go
   - github
+  - opensource
 Categories: Software
 externalUrL: https://github.com/sourcegraph/conc
 imgUrL: >-
